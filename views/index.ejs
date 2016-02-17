@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="web app that notifies home owners when to take out trash">
+    <meta name="author" content="JMPH">
+    <title>trashBuddy</title>
+    <meta name="google-site-verification" content="2u-yE4jwo1OQVpHUu0q0-kkNr1l1iKa3Wx-uGQoH5_8" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+
+
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+    <div class="jumbotron">
+      <div class="clearfix">
+        <div class="inner">
+          <div class="container">
+            <a href="/"><img src="images/logo-01.svg" alt="logo1" id="logo1" class="masthead-brand"></a>
+            <nav>
+              <ul class="nav masthead-nav">
+                <li><a href="#fName">JOIN US</a></li>
+                <li><a href="#email_si">SIGN IN</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <hr class="drop_shadow">
+    <div class="container">
+      <div id="browser">
+      <img src="images/logo-02.svg" alt="logo2" class="logo2">
+        <p>helping Orlando residents </p>
+        <p>and visitors to easily find schedule</p>
+        <p>for recycling and yard waste</p>
+        <hr class="short_hr">
+        <p class="font-italic">Recycling / Yard waste / Property Address</p>
+        <a class="btn btn-primary btn-lg cta" role="button">Join Us Now</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- First  -->
+      <div class="row">
+        <div class="col-md-4 bg-grey browser1">
+          <img src="images/logo-02.svg" alt="logo2">
+          <p>trashBuddy helps Orlando </p>
+          <p>residents and visitors to easily find </p>
+          <p>information about utility services – </p>
+          <p>garbage and recycling</p>
+        </div>
+        <div class="col-md-8 browser1-2">
+          <p class="text-left">To locate information for your address, simply enter an address in the search box. You can even enter part of an address such as the street name to find all the addresses located on that street.</p>
+          <p class="text-left">You can also enter a street intersection. If validated your location will then be pinned on the map and relevant information about available City information and services will be presented.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="width100 bg-white browser2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="images/setting.svg" alt="set address">
+            <h3 class="text-left">1. Set up your home address.</h3>
+            <p class="text-left">Let us know your home
+              address.</p>
+            <hr>
+          </div>
+          <div class="col-md-4">
+            <img src="images/notification.svg" alt="get notified">
+            <h3 class="text-left">2. Get the notification.</h3>
+            <p class="text-left">Choose a delivery method(s) and select a date.</p>
+            <hr>
+          </div>
+          <div class="col-md-4">
+            <img src="images/trash.svg" alt="throw away trash">
+            <h3 class="text-left">3. Throw away the trash.</h3>
+            <p class="text-left">Text or email notification will let you know when to take your trash out.</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- =-=-=-=-=-=-=-==-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-= FORM -->
+    <div class="container browser3">
+
+      <div class="row text-left">
+      <div class="col-md-4">
+
+        <form action="/signup" method="post">
+          <h3 class="text-left">Join Us Now</h3>
+          <div class="form-group">
+            <label for="fName">First Name</label>
+            <input type="text" class="form-control" id="fName" placeholder="First Name" name="firstname">
+          </div>
+          <div class="form-group">
+            <label for="lName">Last Name</label>
+            <input type="text" class="form-control" id="lName" placeholder="Last Name" name="lastname">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+          </div>
+      </div>
+      <div class="col-md-4 form-margin-top">
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" placeholder="Street" name="street">
+          </div>
+          <div class="form-group">
+            <label for="addressl2">Address Line 2</label>
+            <input type="text" class="form-control" id="addressl2" placeholder="Address Line 2 - Apt, Suite, Unit, Building, Floor, etc." name="addressl2">
+
+          </div>
+          <div class="form-group">
+            <label for="zipcode">Zip Code</label>
+            <input type="text" class="form-control" id="zipcode" placeholder="Zip Code" name="zipcode">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="terms"> I accept <a href="">Terms &amp; Conditions</a>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-warning">Join Us</button>
+        </form>
+      </div>
+
+
+        <div class="col-md-4 bg-yellow">
+        <form action="/logIn" method="post">
+          <h3 class="text-left">Sign In</h3>
+          <div class="form-group">
+            <label for="email_si">Email</label>
+            <input type="email" class="form-control" id="email_si" placeholder="Email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password_si">Password</label>
+            <input type="password" class="form-control" id="password_si" placeholder="Password" name="password">
+          </div>
+          <button type="submit" class="btn btn-danger">Sign In</button>
+        </form>
+        <!-- <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a> -->
+        <p class="col-md-6"><a href="/auth/facebook" class="btn btn-primary fb-btn"><span class="fa fa-facebook"></span> Facebook</a></p>
+        <p class="col-md-6"><a href="/auth/twitter" class="btn btn-info twt-btn"><span class="fa fa-twitter"></span> Twitter</a></p>
+
+
+
+      </div>
+      </div>
+      <!-- =-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-= End of FORM -->
+    </div> <!-- /container -->
+    <footer>
+      <p>JPHM Industries &copy; 2015</p>
+    </footer>
+
+  <!-- Latest minified jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</body>
+</html>

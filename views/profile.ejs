@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="web app that notifies home owners when to take out trash">
+    <meta name="author" content="JMPH">
+    <title>trashBuddy</title>
+    <meta name="google-site-verification" content="2u-yE4jwo1OQVpHUu0q0-kkNr1l1iKa3Wx-uGQoH5_8" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+
+
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+<body>
+    <div class="page-wrap">
+        <div class="normal-nav bg-yellow">
+            <div class="inner">
+              <div class="container">
+                <a href="/"><img src="images/logo-01-white.svg" alt="logo1" id="logo1" class="masthead-brand"></a>
+                <nav>
+                  <ul class="nav masthead-nav">
+                    <% if (user.local.email) { %>
+                    <li>Welcome <strong> <%= user.local.firstname %></strong><br></li>
+                    <% } %>
+                    <% if (user.facebook.token) { %>
+                    <li>Welcome <strong> <%= user.facebook.name %></strong><br></li>
+                    <% } %>
+                    <% if (user.twitter.token) { %>
+                    <li>Welcome <strong> <%= user.twitter.displayName %></strong><br></li>
+                    <% } %>
+                    <li><a href="#">SETTINGS</a></li>
+                    <li><a href="/logout">LOG OUT</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="container">
+        <!-- First  -->
+            <h2 class="text-left brown">MY ACCOUNT</h2>
+            <div class="row">
+                <div class="col-md-8 bg-ivory browser1 profile-wrapper">
+                    <% if (user.local.email) { %>
+                        <p class="text-left"><%= user.local.firstname %><br>
+                                            <span id="userEmail"><%= user.local.email %></span><br><br>
+                                            <%= user.local.phone %><br>
+                                            <%= user.local.street %> <%= user.local.addressl2 %><br>
+                                            <%= user.local.zipcode %></p>
+                        <% } %>
+                    <% if (user.facebook.token) { %>
+                        <p class="text-left"><%= user.facebook.name %><br><%= user.facebook.email %></p>
+                    <% } %>
+                    <% if (user.twitter.token) { %>
+                        <p class="text-left"><%= user.twitter.displayName %><br><%= user.twitter.username %></p>
+                    <% } %>
+                </div>
+            </div><!-- End of Profile and map -->
+
+            <div class="browser row text-left col-md-6 no-margin-padding">
+                    <div class="col-md-10 no-margin-padding">
+                        <input id="address" type="text" class="searchBox" placeholder="Ender your home Address" >
+                        
+                    </div>
+                    <div class="col-md-2 no-margin-padding">
+                        <button onClick="getAddress()" class="btn btn-primary btn-lg" role="button">Search</button>
+                    </div>
+            </div>
+
+            <div class="row text-left col-md-12 no-margin-padding">
+                
+                    <h2 class="pickup-h2 text-left brown"></h2>
+                        <p class="text-left brown trashType"></p> 
+                        <p class="text-left brown schedule"></p>
+                        <br>
+                        <p class="text-left brown trashType1"></p> 
+                        <p class="text-left brown recycle_schedule"></p>    
+            
+
+            <div id="notification-wrapper" class="row text-left col-md-12 no-margin-padding">
+                
+                <h2 class="notification-h2 text-left brown"></h2>
+                <p class="notification-p text-left brown"></p>  
+
+                <div id="notification">  
+
+                <div class="row">
+                    <p class="brown">Enter number to receive notification</p>
+                    <div class="col-md-4 no-margin-padding">
+                            <input id="userPhone" type="tel" class="searchBox" placeholder="Enter Phone number">  
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                <p class="brown">Set the notification settings</p>            
+                    <select id="hour">
+                        <option>Hour</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </select>
+
+                    <select id="minute">
+                        <option>Minute</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                    </select>
+
+                    <select id="day">
+                        <option>Day</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednsday">Wednsday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                    <br><br>
+                    <button  class="btn btn-primary btn-lg save-btn" onClick="makeCRON()">Save</button>
+               
+                </div> <!-- NOTIFICATION DIV-->
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div id="error"></div>
+    </div><!-- End of page wrap -->
+<!-- Latest minified jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+    <footer class="site-footer">
+        <p>JPHM Industries &copy; 2015</p>
+    </footer>
+</body>
+</html>
